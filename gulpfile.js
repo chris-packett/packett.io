@@ -126,3 +126,10 @@ gulp.task('dev', ['css', 'js', 'browserSync'], function() {
   gulp.watch('./js/*.js', ['js']);
   gulp.watch('./*.html', browserSync.reload);
 });
+
+// Build task
+gulp.task('build', ['default'], function() {
+  return gulp.src(['css/**', 'js/**', 'scss/**', 'vendor/**', 'mail/**', 'index.html', 'img/**'], {base: './'})
+
+  .pipe(gulp.dest('dist'));
+});
